@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Kids</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0f7fa;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            background-image: url('background.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+        }
+        h1 {
+            color: #004d40;
+            font-size: 3em;
+        }
+        .puzzle {
+            background-color: #ffffff;
+            border: 2px solid #004d40;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .hidden {
+            display: none;
+        }
+        .result {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .correct {
+            color: #4caf50;
+        }
+        .incorrect {
+            color: #f44336;
+        }
+        .answer-input {
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #004d40;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 300px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #004d40;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        button:hover {
+            background-color: #00796b;
+        }
+        .end-game {
+            display: none;
+            font-size: 2em;
+            color: #ffffff;
+            background-color: #00796b;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crypto Kids</h1>
+
+    <!-- Puzzle 1 -->
+    <div class="puzzle" id="puzzle1">
+        <h2>Puzzle 1: The Ancient Scroll</h2>
+        <p>You’ve discovered an ancient scroll with a mysterious message. The message is encoded using the Caesar Cipher, where each letter in the message has been shifted by 5 places in the alphabet. Your task is to decode it and uncover the ancient wisdom.</p>
+        <img src="puzzle1-image.jpg" alt="Ancient Scroll" style="width:100%; max-width:500px; border-radius:8px;">
+        <p><strong>Encoded Message:</strong> MJUJ WTAJ</p>
+        <p class="result" id="result1"></p>
+        <form id="form1" class="answer-input">
+            <label for="answer1">Your Answer:</label>
+            <input type="text" id="answer1" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Puzzle 2 -->
+    <div class="puzzle hidden" id="puzzle2">
+        <h2>Puzzle 2: The Pit of Sand</h2>
+        <p>You fall into a pit of sand. As you look around, you see a series of symbols on the wall. Each symbol represents a letter. You must decode the symbols using a simple substitution cipher where A=1, B=2, C=3, etc.</p>
+        <img src="puzzle2-image.jpg" alt="Pit of Sand" style="width:100%; max-width:500px; border-radius:8px;">
+        <p><strong>Encoded Symbols:</strong> 20-5-19-20 13-1-16</p>
+        <p class="result" id="result2"></p>
+        <form id="form2" class="answer-input">
+            <label for="answer2">Your Answer:</label>
+            <input type="text" id="answer2" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Puzzle 3 -->
+    <div class="puzzle hidden" id="puzzle3">
+        <h2>Puzzle 3: The Secret Room</h2>
+        <p>In the secret room, you find a code written in binary. You need to decode it to proceed.</p>
+        <img src="puzzle3-image.jpg" alt="Secret Room" style="width:100%; max-width:500px; border-radius:8px;">
+        <p><strong>Binary Code:</strong> 01010100 01101000 01100101 00100000 01110110 01110101 01101100 01110100</p>
+        <p class="result" id="result3"></p>
+        <form id="form3" class="answer-input">
+            <label for="answer3">Your Answer:</label>
+            <input type="text" id="answer3" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Puzzle 4 -->
+    <div class="puzzle hidden" id="puzzle4">
+        <h2>Puzzle 4: The Vault Lock</h2>
+        <p>The vault has a 4-digit combination lock. The combination is derived from a riddle: "My first is in 4 but not in 8, my second is in 7 but not in 3, my third is in 2 but not in 1, my last is in 9 but not in 6."</p>
+        <img src="puzzle4-image.jpg" alt="Vault Lock" style="width:100%; max-width:500px; border-radius:8px;">
+        <p class="result" id="result4"></p>
+        <form id="form4" class="answer-input">
+            <label for="answer4">Your Answer:</label>
+            <input type="text" id="answer4" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Puzzle 5 -->
+    <div class="puzzle hidden" id="puzzle5">
+        <h2>Puzzle 5: The Ancient Keys</h2>
+        <p>Each key has a number engraved on it. You find a riddle next to the keys: "I am the smallest and the largest, the even and the odd, the start and the end. What number am I?"</p>
+        <img src="puzzle5-image.jpg" alt="Ancient Keys" style="width:100%; max-width:500px; border-radius:8px;">
+        <p class="result" id="result5"></p>
+        <form id="form5" class="answer-input">
+            <label for="answer5">Your Answer:</label>
+            <input type="text" id="answer5" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Puzzle 6 -->
+    <div class="puzzle hidden" id="puzzle6">
+        <h2>Puzzle 6: The Secret Passage</h2>
+        <p>In the passage, you find a set of symbols arranged in a grid. You need to use a simple substitution cipher where each symbol corresponds to a letter of the alphabet.</p>
+        <img src="puzzle6-image.jpg" alt="Secret Passage" style="width:100%; max-width:500px; border-radius:8px;">
+        <p><strong>Encoded Symbols:</strong> # @ ! * % & $</p>
+        <p class="result" id="result6"></p>
+        <form id="form6" class="answer-input">
+            <label for="answer6">Your Answer:</label>
+            <input type="text" id="answer6" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Puzzle 7 -->
+    <div class="puzzle hidden" id="puzzle7">
+        <h2>Puzzle 7: The Hidden Door</h2>
+        <p>The door is locked with a keypad. The code to unlock it is based on the Fibonacci sequence. The last three digits are needed.</p>
+        <img src="puzzle7-image.jpg" alt="Hidden Door" style="width:100%; max-width:500px; border-radius:8px;">
+        <p class="result" id="result7"></p>
+        <form id="form7" class="answer-input">
+            <label for="answer7">Your Answer:</label>
+            <input type="text" id="answer7" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+       <!-- Puzzle 8 -->
+       <div class="puzzle hidden" id="puzzle8">
+        <h2>Puzzle 8: The Library</h2>
+        <p>In the library, you find a book with pages marked in Morse code. Decode the Morse code to find the next clue.</p>
+        <img src="puzzle8-image.jpg" alt="Library" style="width:100%; max-width:500px; border-radius:8px;">
+        <p><strong>Morse Code:</strong> ...- ..- -..- --. ..- ..-.</p>
+        <p class="result" id="result8"></p>
+        <form id="form8" class="answer-input">
+            <label for="answer8">Your Answer:</label>
+            <input type="text" id="answer8" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Puzzle 9 -->
+    <div class="puzzle hidden" id="puzzle9">
+        <h2>Puzzle 9: The Compass</h2>
+        <p>The compass has letters on it. The direction to go is indicated by a series of coordinates. You need to decode the coordinates using a Vigenère cipher with the keyword "MAP".</p>
+        <img src="puzzle9-image.jpg" alt="Compass" style="width:100%; max-width:500px; border-radius:8px;">
+        <p><strong>Encoded Coordinates:</strong> LBGZ FV UMBK</p>
+        <p class="result" id="result9"></p>
+        <form id="form9" class="answer-input">
+            <label for="answer9">Your Answer:</label>
+            <input type="text" id="answer9" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Puzzle 10 -->
+    <div class="puzzle hidden" id="puzzle10">
+        <h2>Puzzle 10: The Hidden Chest</h2>
+        <p>The chest has a complex lock. To open it, you need to solve a riddle: "I am not alive, but I can grow; I don’t have lungs, but I need air; I don’t have a mouth, but water kills me. What am I?"</p>
+        <img src="puzzle10-image.jpg" alt="Hidden Chest" style="width:100%; max-width:500px; border-radius:8px;">
+        <p class="result" id="result10"></p>
+        <form id="form10" class="answer-input">
+            <label for="answer10">Your Answer:</label>
+            <input type="text" id="answer10" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- End Game -->
+    <div class="end-game" id="end-game">
+        <h2>Congratulations!</h2>
+        <p>You have successfully completed all the puzzles and unlocked the secrets!</p>
+        <p>Your skills in cryptography and problem-solving have proven exceptional. Well done!</p>
+        <img src="celebration.jpg" alt="Celebration" style="width:100%; max-width:600px; border-radius:8px;">
+    </div>
+
+    <script>
+        // Function to handle puzzle submission
+        function handlePuzzle(puzzleId, correctAnswer, nextPuzzleId, guidance) {
+            document.getElementById(`form${puzzleId}`).addEventListener('submit', function(event) {
+                event.preventDefault();
+                var answer = document.getElementById(`answer${puzzleId}`).value.trim().toLowerCase();
+                var resultElement = document.getElementById(`result${puzzleId}`);
+                if (answer === correctAnswer.toLowerCase()) {
+                    resultElement.textContent = 'Correct!';
+                    resultElement.className = 'result correct';
+                    if (nextPuzzleId) {
+                        document.getElementById(`puzzle${nextPuzzleId}`).classList.remove('hidden');
+                    }
+                    if (puzzleId === 10) {
+                        document.getElementById('end-game').style.display = 'block';
+                    }
+                } else {
+                    resultElement.textContent = `Incorrect. ${guidance}`;
+                    resultElement.className = 'result incorrect';
+                }
+                document.getElementById(`answer${puzzleId}`).value = ''; // Clear the input
+            });
+        }
+    
+        // Puzzle 1
+        handlePuzzle(1, 'jump now', 2, 'The Caesar Cipher shifts each letter by a fixed number of places. Try shifting the letters back by 5 places.');
+    
+        // Puzzle 2
+        handlePuzzle(2, 'test map', 3, 'Substitute each number with its corresponding letter (A=1, B=2, etc.).');
+    
+        // Puzzle 3
+        handlePuzzle(3, 'the vault', 4, 'Convert binary code to text using an online binary-to-text converter.');
+    
+        // Puzzle 4
+        handlePuzzle(4, '4729', 5, 'The riddle describes digits present in the numbers 4, 7, 2, and 9, but not in others.');
+    
+        // Puzzle 5
+        handlePuzzle(5, '0', 6, 'The riddle describes the number 0, which fits all given conditions.');
+    
+        // Puzzle 6
+        handlePuzzle(6, 'message', 7, 'Each symbol corresponds to a letter. Find the correct substitution for each symbol.');
+    
+        // Puzzle 7
+        handlePuzzle(7, '112', 8, 'Use the Fibonacci sequence to find the last three digits. The sequence is 1, 1, 2, 3, 5, 8, 13, etc.');
+    
+        // Puzzle 8
+        handlePuzzle(8, 'sudoku', 9, 'Translate Morse code to text using a Morse code translator.');
+    
+        // Puzzle 9
+        handlePuzzle(9, 'north', 10, 'The Vigenère cipher uses a keyword to decode the message. Apply the keyword "MAP" to the encoded message.');
+    
+        // Puzzle 10
+        handlePuzzle(10, 'fire', null, 'The riddle describes something that grows but is not alive, needs air, and is extinguished by water.');
+    </script>
+    
+</body>
+</html>
